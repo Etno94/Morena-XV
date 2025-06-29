@@ -1,0 +1,195 @@
+/*
+*  html5resetcss
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+button{border: unset}
+
+/* Reset */
+:root {
+    --pic-1-top: -10%;
+    --pic-2-top: -50%;
+    --pic-3-top: -105%;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --pic-1-top: -30%;
+    --pic-2-top: -50%;
+    --pic-3-top: -75%;
+  }
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body, html {
+height: 100%;
+font-family: "Montserrat", sans-serif;
+font-weight: 400;
+font-style: normal;
+background: #93B5E9;;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.section {
+padding: 80px 20px;
+text-align: center;
+font-size: 1.8rem;
+}
+.section.initial {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.scroll-down {
+  font-size: 2rem;
+  animation: bounce 1.5s infinite;
+  text-align: center;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(10px); }
+}
+
+.arrow {
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+.section div {
+    flex: 1 1 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease 0.5s;
+}
+.section.visible div {
+    opacity: 1;
+}
+
+.section.initial div:nth-child(1) {
+    transition-delay: 1s;
+}
+
+.section.initial div:nth-child(2) {
+    transition-delay: 4s;
+    margin-bottom: 20vh;
+}
+.section.initial div:nth-child(3) {
+    transition-delay: 6s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.bg-parallax {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+    padding: 32px;
+}
+
+
+.bg-parallax .rellax {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    
+    background-size: cover;
+    background-position: bottom;
+    filter: brightness(0.5);
+}
+.bg-parallax .rellax:first-child {
+    background-position: center;
+}
+.bg-parallax .rellax.top {
+background-position: top;
+}
+
+.section.bg-blue {
+    background: #93B5E9;
+    color: #333;
+    line-height: normal;
+}
+
+.overlay-text {
+position: relative;
+z-index: 1;
+padding-top: 140px;
+color: white;
+font-size: 2.5rem;
+}
+.overlay-text.right {
+    padding-top: 0;
+    margin-right: 32px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.info-panel {
+    min-width: 256px;
+    width: 25vw;
+    padding: 32px;
+    max-height: 50vh;
+    color: white;
+    position: absolute;
+    bottom: 32px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    border-radius: 48px;
+    gap: 24px;
+
+    backdrop-filter: blur(4px) saturate(200%);
+    background-color: rgb(147 181 233 / 20%);
+}
+
+.info-panel div {
+    flex: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+button {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    font: inherit;
+}

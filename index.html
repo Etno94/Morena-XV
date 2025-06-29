@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Parallax con Rellax.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link href="./styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="section initial bg-blue">
+        <div><p>Cuando el reloj marque las nueve</p></div>
+        <div><p>no se perderá el hechizo…</p></div>
+        <div class="scroll-down">
+                <svg class="arrow" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"
+                viewBox="0 0 24 24">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </div>
+
+    <div id="firstPic" class="bg-parallax">
+    <div
+      class="rellax"
+      data-rellax-speed="-4"
+      style="background-image: url('./imgs/19631b3b-fb63-4b10-9adb-ce6b74ead7f6.jpg'); top: var(--pic-1-top)">
+    </div>
+    <div class="overlay-text"><p>¡Comenzará la fiesta!</p></div>
+  </div>
+
+     <div class="section bg-blue">
+        <div><p>Con paso de baile y brillo en los ojos</p></div>
+        <div><p>te invito a soñar conmigo...</p></div>
+    </div>
+
+  <div class="bg-parallax">
+    <div
+      class="rellax"
+      data-rellax-speed="-4"
+      style="background-image: url('./imgs/cdd71841-5cb6-4dd6-97d9-d7d21191f3c4.jpg'); top: var(--pic-2-top)">
+    </div>
+    <div class="overlay-text"><p>...en una noche mágica</p></div>
+  </div>
+
+  <div class="section bg-blue">
+    <div><p>Mis 15 están por comenzar</p></div>
+  </div>
+
+  <div class="bg-parallax">
+    <div
+      class="top rellax"
+      data-rellax-speed="-4"
+      style="background-image: url('./imgs/7ed9bc55-a6ae-45c6-b694-611f5c61bccf.jpg'); top: var(--pic-3-top)">
+    </div>
+    <div class="overlay-text right"><p>y vos sos parte del cuento</p></div>
+    <div class="info-panel">
+        <div>Viernes 8 de Agosto, 21hs</div>
+        <div><a href="https://maps.app.goo.gl/KUWPKRYX7mpEtxk4A" target="_blank"> Gorriti 950, Lomas de Zamora <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" style="margin-left: 4px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 3h3v3"></path>
+    <path d="M11 13l9-9"></path>
+    <path d="M5 7v13h13v-5"></path>
+  </svg></a></div>
+        <a
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=15%27s+de+Morena&dates=20250809T000000Z/20250809T090000Z&location=Jos%C3%A9+Ignacio+Gorriti+950%2C+B1832IVS+Lomas+de+Zamora%2C+Provincia+de+Buenos+Aires&details=¡Acompañanos+a+celebrar+los+15+de+Morena!"
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+            <button>Agregar a Google Calendar</button>
+            </a>
+    </div>
+  </div>
+
+  <!-- <div class="section bg-blue">
+    
+  </div> -->
+
+  <script src="https://cdn.jsdelivr.net/gh/dixonandmoe/rellax@master/rellax.min.js"></script>
+  <script>
+    new Rellax('.rellax');
+
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
+        }
+    });
+    });
+
+    document.querySelectorAll('.section').forEach(el => observer.observe(el));
+
+    document.querySelector('.scroll-down').addEventListener('click', () => {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+        });
+    });
+  </script>
+</body>
+</html>
